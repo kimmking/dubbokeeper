@@ -1,47 +1,49 @@
 package com.dubboclub.dk.storage.model;
 
+import java.io.Serializable;
+
 /**
  * Created by bieber on 2015/11/4.
  */
-public class OverviewItem {
+public class OverviewItem implements Serializable {
 
-    private long concurrent;
+    private Long concurrent;
 
-    private long elapsed;
+    private Long elapsed;
 
-    private long fault;
+    private Long fault;
 
-    private long success;
+    private Long success;
 
-    public long getConcurrent() {
+    public Long getConcurrent() {
         return concurrent;
     }
 
-    public void setConcurrent(long concurrent) {
+    public void setConcurrent(Long concurrent) {
         this.concurrent = concurrent;
     }
 
-    public long getElapsed() {
+    public Long getElapsed() {
         return elapsed;
     }
 
-    public void setElapsed(long elapsed) {
+    public void setElapsed(Long elapsed) {
         this.elapsed = elapsed;
     }
 
-    public long getFault() {
+    public Long getFault() {
         return fault;
     }
 
-    public void setFault(long fault) {
+    public void setFault(Long fault) {
         this.fault = fault;
     }
 
-    public long getSuccess() {
+    public Long getSuccess() {
         return success;
     }
 
-    public void setSuccess(long success) {
+    public void setSuccess(Long success) {
         this.success = success;
     }
 }

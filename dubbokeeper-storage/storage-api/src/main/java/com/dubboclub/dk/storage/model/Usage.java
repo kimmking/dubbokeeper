@@ -1,13 +1,15 @@
 package com.dubboclub.dk.storage.model;
 
+import java.io.Serializable;
+
 /**
  * Created by bieber on 2015/10/8.
  */
-public class Usage {
+public class Usage implements Serializable {
     
     private String remoteAddress;
     
-    private long count;
+    private Long count;
 
     public String getRemoteAddress() {
         return remoteAddress;
@@ -17,11 +19,11 @@ public class Usage {
         this.remoteAddress = remoteAddress;
     }
 
-    public long getCount() {
+    public Long getCount() {
         return count;
     }
 
-    public void setCount(long count) {
+    public void setCount(Long count) {
         this.count = count;
     }
 }

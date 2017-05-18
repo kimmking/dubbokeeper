@@ -1,16 +1,16 @@
 #!/bin/bash
-TRANSPORTER_HOME=$(pwd)
-TRANSPORTER_PREFIX="${TRANSPORTER_HOME}/.."
-TRANSPORTER_CONF="${TRANSPORTER_PREFIX}/conf"
-TRANSPORTER_CONF_FILE="${TRANSPORTER_CONF}/server.properties"
-TRANSPORTER_LOG_DIR="${TRANSPORTER_PREFIX}/logs"
-CLASSPATH="${TRANSPORTER_PREFIX}/lib/*"
-MAINCLASS="com.bieber.server.TransporterSetup"
-echo ${MAINCLASS}
-if [ "$JAVA_HOME" != "" ]; then
-  JAVA="$JAVA_HOME/bin/java"
+DK_HOME=$(cd "$(dirname "$0")"; pwd)
+CONFDIR="${DK_HOME}/../conf"
+LOG_HOME="${DK_HOME}/../logs"
+CLASSPATH="${DK_HOME}/../lib/*:${CONFDIR}"
+MAINCLASS="com.dubboclub.dk.server.Main"
+
+if [ -z $JAVA_HOME ]; then
+	JAVA=java
 else
-  JAVA=java
+	JAVA="$JAVA_HOME/bin/java"
 fi
-echo $CLASSPATH
-"$JAVA" "-Dfile.transporter.log=${TRANSPORTER_LOG_DIR}" -cp "${CLASSPATH}" "${MAINCLASS}" -c "${TRANSPORTER_CONF_FILE}" ${@}
+
+DUBBO_PROPERTIES="dubbo-lucene.properties"
+
+"$JAVA" "-Dmonitor.log.home=${LOG_HOME}" "-Ddubbo.properties.file=${DUBBO_PROPERTIES}" -cp $CLASSPATH "${MAINCLASS}" start

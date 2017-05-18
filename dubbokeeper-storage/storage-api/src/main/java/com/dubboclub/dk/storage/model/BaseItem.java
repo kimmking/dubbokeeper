@@ -1,15 +1,17 @@
 package com.dubboclub.dk.storage.model;
 
+import java.io.Serializable;
+
 /**
  * Created by bieber on 2015/11/4.
  */
-public class BaseItem {
+public class BaseItem implements Serializable{
 
     private String method;
 
     private String service;
 
-    private long timestamp;
+    private Long timestamp;
 
     private String remoteType;
 
@@ -37,11 +39,11 @@ public class BaseItem {
         this.service = service;
     }
 
-    public long getTimestamp() {
+    public Long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
 }
